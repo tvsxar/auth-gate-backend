@@ -15,7 +15,12 @@ mongoose
   .then(() => console.log("MongoDB connected"))
   .catch((err) => console.log("MongoDB connection error:", err));
 
-app.use(cors());
+app.use(
+  cors({
+    origin: "http://localhost:4200",
+    credentials: true,
+  }),
+);
 app.use(express.json());
 app.use("/api/users", userRoutes);
 

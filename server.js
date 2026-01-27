@@ -3,6 +3,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
 import userRoutes from "./routes/userRoutes.js";
+import cookieParser from "cookie-parser";
 
 dotenv.config();
 
@@ -22,6 +23,7 @@ app.use(
   }),
 );
 app.use(express.json());
+app.use(cookieParser());
 app.use("/api/users", userRoutes);
 
 const PORT = process.env.PORT || 1110;
